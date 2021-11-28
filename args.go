@@ -43,6 +43,7 @@ type arguments struct {
 	Eval                   *bool
 	Condensed              *bool
 	IgnoreWarnings         *bool
+	Time                   *string
 }
 
 var args = arguments{
@@ -189,6 +190,12 @@ var args = arguments{
 		"duration",
 		defaults.Duration,
 		comments("The elapsed clock-time of the previous command")),
+	Time: flag.String(
+		"time",
+		defaults.Time,
+		comments("The layout string how a reference time should be represented.",
+			"The reference time is predefined and not user choosen.",
+			"Consult the golang documentation for details: https://pkg.go.dev/time#example-Time.Format")),
 	DurationMin: flag.String(
 		"duration-min",
 		defaults.DurationMin,
